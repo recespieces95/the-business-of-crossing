@@ -7,6 +7,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Business of Crossing">
 <meta property="og:description" content="What human smuggling reveals about migration, sustainability, and the cost of deterrence. An interactive synthesis grounded in Jason De León's Soldiers and Kings.">
+<!-- The site's public address and preview image. If the GitHub repository or username ever changes, update these four URLs. -->
+<link rel="canonical" href="https://recespieces95.github.io/the-business-of-crossing/">
+<meta property="og:url" content="https://recespieces95.github.io/the-business-of-crossing/">
+<meta property="og:image" content="https://recespieces95.github.io/the-business-of-crossing/sonoran-desert.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="Organ pipe cacti in the Sonoran Desert, with the mountains of Mexico on the horizon.">
+<meta name="twitter:card" content="summary_large_image">
 <!-- Colors the phone's browser bar to match the dark hero -->
 <meta name="theme-color" content="#2B2420">
 <!-- Tab icon: a small cream ticket with a terracotta stub, drawn inline so no extra file is needed -->
@@ -259,16 +267,12 @@
   .bar-value{font-family:var(--font-mono); font-weight:700; font-size:13px; color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap;}
   .chart-foot{margin-top:16px; font-size:12.5px; font-style:italic; color:var(--ink-muted);}
 
-  /* ---------- list rows w/ tag (smugglers reframed, peer gaps) ---------- */
+  /* ---------- list rows w/ tag (smugglers reframed) ---------- */
   .row-list{display:flex; flex-direction:column; gap:26px; margin-top:32px;}
   /* each row: tag circle in a narrow left column, heading + text on the right */
   .row-item{display:grid; grid-template-columns:38px 1fr; gap:18px;}
   .row-item h3{font-size:17px; margin-bottom:6px;}
   .row-item p{color:var(--ink-muted); font-size:14.5px;}
-  /* two-column variant where each row-item sits in its own card */
-  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:32px;}
-  @media (max-width:700px){ .grid-2{grid-template-columns:1fr;} }
-  .grid-2 .row-item{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px;}
 
   /* ---------- smugglers: myth vs. reality rows ---------- */
   .myth-list{gap:38px;}
@@ -336,9 +340,10 @@
   .ix-stop p{margin-top:6px; font-size:14px; line-height:1.55; color:var(--ink-muted); max-width:42ch;}
   .ix-stop:nth-child(odd) p{margin-left:auto;}
   /* "Revisit:" links back to the earlier sections that covered this theme */
-  .ix-links{margin-top:3px; font-family:var(--font-mono); font-size:11.5px; line-height:1.6; color:var(--ink-muted);}
-  .ix-links a{display:inline-block; padding-block:5px; color:var(--accent); text-decoration:none;}
-  .ix-links a:hover{text-decoration:underline;}
+  .ix-links, .hc-links{margin-top:3px; font-family:var(--font-mono); font-size:11.5px; line-height:1.6; color:var(--ink-muted);}
+  .ix-links a, .hc-links a{display:inline-block; padding-block:5px; color:var(--accent); text-decoration:none;}
+  .ix-links a:hover, .hc-links a:hover{text-decoration:underline;}
+  .hc-links{margin-top:16px;}
   /* narrow screens: hub and trunk move to the left edge and every stop branches to the right */
   @media (max-width:700px){
     .ix-hub{flex-direction:row; text-align:left; gap:14px;}
@@ -498,11 +503,58 @@
   .loop-detail .kicker{margin-bottom:12px;}
   .loop-detail p{font-size:15px; color:var(--ink-dim); line-height:1.6;}
 
-  /* ---------- quote cards ---------- */
-  .quote-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:32px;}
-  @media (max-width:700px){ .quote-grid{grid-template-columns:1fr;} }
-  .quote-card blockquote{font-family:var(--font-display); font-weight:700; font-style:italic; font-size:18px; line-height:1.4; margin:14px 0 16px;}
-  .quote-card p{color:var(--ink-muted); font-size:13.5px; line-height:1.55;}
+  /* ---------- human cost: a memorial for Papo, a life line for Kingston ---------- */
+  .hc-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; align-items:start;}
+  @media (max-width:760px){ .hc-grid{grid-template-columns:1fr;} }
+  .hc-card{border-radius:12px; padding:clamp(20px,3vw,28px);}
+  /* card header: small label, the person's name, and one line on who they were */
+  .hc-head{padding-bottom:14px; margin-bottom:18px; border-bottom:1px solid var(--line);}
+  .hc-head .k{display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-muted);}
+  .hc-head h3{font-size:26px; margin-top:4px;}
+  .hc-role{display:block; margin-top:4px; font-size:14px; color:var(--ink-muted);}
+  /* Papo: a quiet memorial card, plain background with a short accent rule above "In memory" */
+  .memorial{background:var(--bg); border:1px solid var(--line-strong);}
+  .memorial .hc-head .k::before{content:""; display:block; width:28px; height:2px; margin-bottom:10px; background:var(--accent);}
+  .memorial blockquote{margin:0; font-family:var(--font-display); font-style:italic; font-size:19px; line-height:1.45;}
+  .memorial p{margin-top:14px; font-size:14px; line-height:1.6; color:var(--ink-dim);}
+  /* the record that was never made: form-style fields whose answers sit on dashed blank lines */
+  .record{display:grid; grid-template-columns:auto 1fr; gap:10px 16px; margin:20px 0 0; padding-top:16px; border-top:1px solid var(--line);}
+  .record dt{font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-muted); padding-top:3px;}
+  .record dd{margin:0; padding-bottom:3px; border-bottom:1px dashed var(--line-strong); font-style:italic; font-size:14px; color:var(--ink-muted);}
+  /* Kingston: his life drawn as a line of stops, ending back on the tracks */
+  .lifeline{background:var(--surface); border:1px solid var(--line);}
+  .life-stops{list-style:none; margin:0; padding:0 0 0 30px; position:relative;}
+  .life-stops li{position:relative; padding-bottom:16px;}
+  .life-stops li::before{content:""; position:absolute; left:-30px; top:3px; width:14px; height:14px; border-radius:50%; background:var(--surface); border:2px solid var(--ink-muted);}
+  /* line segment from each pin down to the next one, so the line ends exactly at the last stop */
+  .life-stops li:not(:last-child)::after{content:""; position:absolute; left:-24px; top:17px; bottom:-3px; width:2px; background:var(--ink-muted);}
+  /* the last stop (deported back onto the tracks) is filled in accent */
+  .life-stops li:last-child::before{background:var(--accent); border-color:var(--accent);}
+  .life-stops .when{display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent);}
+  .life-stops .what{display:block; margin-top:2px; font-size:14px; line-height:1.5; color:var(--ink-dim);}
+  .life-loop{margin-top:2px; font-family:var(--font-mono); font-size:11.5px; color:var(--accent);}
+
+  /* ---------- dig deeper: branch lines not yet built ---------- */
+  .spur-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:32px;}
+  @media (max-width:700px){ .spur-grid{grid-template-columns:1fr;} }
+  /* dashed card = a line still under construction */
+  .spur{border:1.5px dashed var(--line-strong); border-radius:10px; padding:20px 22px;}
+  /* track strip: built (solid rail with ties) for the first third, then planned (dashed rail, no ties) */
+  .spur-track{
+    display:block; height:10px; margin-bottom:14px;
+    background:
+      linear-gradient(var(--ink-muted),var(--ink-muted)) 0 0 / 35% 2px no-repeat,
+      repeating-linear-gradient(90deg,var(--ink-muted) 0 6px,transparent 6px 12px) 100% 0 / 65% 2px no-repeat,
+      repeating-linear-gradient(90deg,var(--line-strong) 0 2px,transparent 2px 9px) 0 2px / 35% 8px no-repeat;
+  }
+  .spur .k{display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-muted);}
+  .spur h3{font-size:17px; margin-top:6px;}
+  .spur p{margin-top:8px; font-size:14px; line-height:1.55; color:var(--ink-muted);}
+  /* a starter question at the bottom of each card */
+  .spur-q{margin-top:14px; padding-top:12px; border-top:1px solid var(--line);}
+  .spur-q .k{color:var(--accent);}
+  .spur-q p{margin-top:4px; font-family:var(--font-display); font-style:italic; font-size:15.5px; line-height:1.45; color:var(--ink);}
+
 
   /* ---------- vignette ---------- */
   .vignette{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:clamp(24px,5vw,48px); margin-top:32px;}
@@ -872,7 +924,7 @@
           <p class="myth"><span class="k">The assumption</span><s>They&rsquo;re cartel kingpins</s></p>
           <h3>Often former migrants themselves</h3>
           <p>Guides like Chino, Santos, and Papo fell into the work as broke teenagers riding the same freight trains as their clients, not cartel kingpins, but kids with few other options.</p>
-          <a class="row-link" href="#s-humancost">Papo&rsquo;s story continues in The Human Cost Behind the Numbers &darr;</a>
+          <a class="row-link" href="#papo">Papo&rsquo;s story continues in The Human Cost Behind the Numbers &darr;</a>
         </div></div>
 
         <!-- 03: assumption, reality, and the crew-roster graphic -->
@@ -931,36 +983,77 @@
     </div>
   </section>
 
-  <!-- Personal accounts make the human consequences behind the statistics more concrete. -->
+  <!-- Two lives behind the statistics: a memorial for Papo, whose death left no record, and Kingston's life drawn as a line that ends back on the tracks. -->
   <section id="s-humancost">
     <div class="wrap">
       <!-- Section label: What I Learned &middot; Soldiers and Kings -->
       <h2 class="h-xl">The Human Cost Behind the Numbers</h2>
-      <div class="quote-grid">
-        <div class="quote-card card">
-          <span class="tag">P</span>
+      <p class="lede">The 686 counts the deaths and disappearances someone recorded. Many never are. These are two of the people De Le&oacute;n follows, whose stories no count captures: one killed without a record, one carried around the same loop his whole life.</p>
+      <div class="hc-grid">
+        <!-- Papo: memorial card. The empty "record" fields reflect the book: no investigation, no public record, burial place unknown. -->
+        <article class="hc-card memorial" id="papo">
+          <div class="hc-head"><span class="k">In memory</span><h3>Papo</h3><span class="hc-role">A low-level gu&iacute;a in Pakal-N&aacute;</span></div>
           <blockquote>&ldquo;They say he was a snitch&hellip; someone killed him for 500 pesos [$25].&rdquo;</blockquote>
-          <p>Papo, a low-level gu&iacute;a in Pakal-N&aacute;, was tortured and killed on a rumor. No investigation, no public record. De Le&oacute;n never learns where he's buried.</p>
-        </div>
-        <div class="quote-card card">
-          <span class="tag">K</span>
-          <blockquote>Conscripted into the Honduran military at 12. Deported from the U.S. at 25.</blockquote>
-          <p>Kingston was orphaned, forcibly recruited as a child soldier during a U.S.-backed military buildup, joined a gang in New York, served time, and was deported back onto the same tracks he'd crossed as a kid.</p>
-        </div>
+          <p>Papo was tortured and killed on a rumor.</p>
+          <dl class="record">
+            <dt>Investigation</dt><dd>None</dd>
+            <dt>Public record</dt><dd>None</dd>
+            <dt>Buried</dt><dd>Unknown. De Le&oacute;n never learns where.</dd>
+          </dl>
+          <div class="hc-links">Revisit: <a href="#s-smugglers">Smugglers Aren&rsquo;t Who You Think</a></div>
+        </article>
+        <!-- Kingston: his life as a line of stops (summarized from the book, not a quotation), ending where the loop starts again. -->
+        <article class="hc-card lifeline" id="kingston">
+          <div class="hc-head"><span class="k">A life on the line</span><h3>Kingston</h3><span class="hc-role">Conscripted at 12. Deported at 25.</span></div>
+          <ol class="life-stops">
+            <li><span class="when">Childhood</span><span class="what">Orphaned in Honduras.</span></li>
+            <li><span class="when">Age 12</span><span class="what">Forcibly recruited into the Honduran military as a child soldier, during a U.S.-backed military buildup.</span></li>
+            <li><span class="when">Still a kid</span><span class="what">Rides the tracks north to the U.S.</span></li>
+            <li><span class="when">New York</span><span class="what">Joins a gang and serves time.</span></li>
+            <li><span class="when">Age 25</span><span class="what">Deported back onto the same tracks he crossed as a kid.</span></li>
+          </ol>
+          <p class="life-loop">&#8635; Back where the loop starts</p>
+          <div class="hc-links">Revisit: <a href="#s-loop">The loop</a> &middot; <a href="#s-intersections">Foreign Policy</a></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Discussion section identifies related questions the presentation leaves open. -->
+  <!-- Discussion section: questions the presentation opens but doesn't settle, drawn as branch lines still under construction. -->
   <section id="s-peergaps">
     <div class="wrap">
       <!-- Section label: Discussion -->
       <h2 class="h-xl">Where We Could All Dig Deeper</h2>
-      <div class="grid-2">
-        <div class="row-item"><span class="tag">01</span><div><h3>Legal alternatives to enforcement</h3><p>We talk a lot about what deterrence gets wrong; we spend less time on what a workable legal pathway would actually require.</p></div></div>
-        <div class="row-item"><span class="tag">02</span><div><h3>Race inside the migrant trail</h3><p>Garifuna and other Afro-Central American migrants face discrimination from fellow migrants, smugglers, and officials alike, a layer most border coverage skips.</p></div></div>
-        <div class="row-item"><span class="tag">03</span><div><h3>What happens after deportation</h3><p>Multiple returns, cycles of re-migration, and the long-term toll on families rarely make it into the policy conversation.</p></div></div>
-        <div class="row-item"><span class="tag">04</span><div><h3>U.S. policy's role in creating the problem</h3><p>Cold War military aid and 1990s gang deportations directly shaped the violence driving migration today, worth knowing before debating solutions.</p></div></div>
+      <p class="lede">These are the questions this presentation opens but doesn&rsquo;t settle: branch lines off the route, worth following on your own.</p>
+      <div class="spur-grid">
+        <article class="spur" id="gap-legal">
+          <span class="spur-track" aria-hidden="true"></span>
+          <span class="k">Branch line 1 &middot; Not yet explored</span>
+          <h3>Legal alternatives to enforcement</h3>
+          <p>We talk a lot about what deterrence gets wrong; we spend less time on what a workable legal pathway would actually require.</p>
+          <div class="spur-q"><span class="k">A question to start with</span><p>What would a legal pathway need to offer for someone to choose it over hiring a gu&iacute;a?</p></div>
+        </article>
+        <article class="spur" id="gap-race">
+          <span class="spur-track" aria-hidden="true"></span>
+          <span class="k">Branch line 2 &middot; Not yet explored</span>
+          <h3>Race inside the migrant trail</h3>
+          <p>Garifuna and other Afro-Central American migrants face discrimination from fellow migrants, smugglers, and officials alike, a layer most border coverage skips.</p>
+          <div class="spur-q"><span class="k">A question to start with</span><p>How does the journey change for a Garifuna migrant, and why doesn&rsquo;t border coverage talk about it?</p></div>
+        </article>
+        <article class="spur" id="gap-deportation">
+          <span class="spur-track" aria-hidden="true"></span>
+          <span class="k">Branch line 3 &middot; Not yet explored</span>
+          <h3>What happens after deportation</h3>
+          <p>Multiple returns, cycles of re-migration, and the long-term toll on families rarely make it into the policy conversation.</p>
+          <div class="spur-q"><span class="k">A question to start with</span><p>What happens to a family when the same person is deported, returns, and is deported again?</p></div>
+        </article>
+        <article class="spur" id="gap-us-policy">
+          <span class="spur-track" aria-hidden="true"></span>
+          <span class="k">Branch line 4 &middot; Not yet explored</span>
+          <h3>U.S. policy's role in creating the problem</h3>
+          <p>Cold War military aid and 1990s gang deportations directly shaped the violence driving migration today, worth knowing before debating solutions.</p>
+          <div class="spur-q"><span class="k">A question to start with</span><p>If U.S. policy helped create the violence people are fleeing, what does the U.S. owe the people fleeing it?</p></div>
+        </article>
       </div>
     </div>
   </section>
@@ -1197,12 +1290,12 @@
           <li class="ix-stop">
             <h3>Race &amp; Equity</h3>
             <p>Afro-Central American migrants face compounded discrimination other migrants don't, on the trail and in the data.</p>
-            <div class="ix-links">Revisit: <a href="#s-peergaps">Race inside the migrant trail</a></div>
+            <div class="ix-links">Revisit: <a href="#gap-race">Race inside the migrant trail</a></div>
           </li>
           <li class="ix-stop">
             <h3>Foreign Policy</h3>
             <p>U.S. Cold War military aid and 1990s deportations helped build the gang networks now blamed for driving people out.</p>
-            <div class="ix-links">Revisit: <a href="#s-humancost">Kingston&rsquo;s story</a> &middot; <a href="#s-peergaps">U.S. policy&rsquo;s role</a></div>
+            <div class="ix-links">Revisit: <a href="#kingston">Kingston&rsquo;s story</a> &middot; <a href="#gap-us-policy">U.S. policy&rsquo;s role</a></div>
           </li>
           <li class="ix-stop">
             <h3>Human Rights</h3>
@@ -1458,7 +1551,7 @@
     'If arresting low-level smugglers doesn’t reduce migration, what actually would?',
     'If the U.S. economy is structurally built on undocumented labor, what does it mean to keep calling that labor “illegal”?',
     'How should policy weigh a sending country’s economic dependence on remittances against treating migration as a security threat?',
-    'What would a sustainability-informed migration policy — one that addresses root causes instead of managing symptoms — actually look like?'
+    'What would a sustainability-informed migration policy (one that addresses root causes instead of managing symptoms) actually look like?'
   ];
   var qList = document.getElementById('questionList');
   var notesMsg = document.getElementById('notesMsg');
